@@ -25,10 +25,103 @@ Tasks
 3. Step 3: Instantiate Objects
     ○ Create instances of each class and test the shared and unique
     methods.
-1
+
 4. Step 4: Test the Inheritance
     ○ Use inherited methods like checkOut() and returnItem() to
     manage the availability of items.
     ○ Test accessing and displaying unique properties of each child
     class.
 */ 
+
+//Step 1 
+class LibraryItem {
+    constructor (title,id,isAvailable) {
+    this.title = title; 
+    this.id = id; 
+    this.isAvailable = isAvailable;
+    }
+
+    checkOut() {
+       this.isAvailable = false;
+        console.log(`${this.title} with ID ${this.id} is checked out.`);
+    }
+
+    returnItem() {
+        this.isAvailable = true;
+        console.log(`${this.title} with ID ${this.id} is available.`);
+    }
+}
+
+//Step 2 
+
+class Book extends LibraryItem {
+    constructor(title,id,isAvailable, author, genre) {
+        super(title,id,isAvailable); 
+        this.author = author;
+        this.genre = genre; 
+    }
+    
+    checkOut() {
+        this.isAvailable = false; 
+        console.log(`${this.title} written by ${this.author} with ID ${this.id} is checked out.`);
+    }
+
+     returnItem() {
+        this.isAvailable = true;
+        console.log(`${this.title} written by ${this.author} with ID ${this.id} is available.`);
+    }
+}
+
+class DVD extends LibraryItem {
+    constructor(title,id,isAvailable,director,duration) {
+        super(title,id,isAvailable); 
+        this.director = director;
+        this.duration = duration; 
+    }
+    
+    checkOut() {
+        this.isAvailable = false; 
+        console.log(`${this.title} directed by ${this.director} with ID ${this.id} is checked out.`);
+    }
+
+     returnItem() {
+       this.isAvailable = true;
+        console.log(`${this.title} directed by ${this.director} with ID ${this.id} is available.`);
+    }
+
+}
+
+class Magazine extends LibraryItem {
+    constructor(title,id,isAvailable,issueNumber,publisher) {
+        super(title,id,isAvailable); 
+        this.issueNumber = issueNumber;
+        this.publisher = publisher; 
+    }
+    
+     checkOut() {
+       this.isAvailable = false; 
+        console.log(`${this.title} published by ${this.publisher} with ID ${this.id} is checked out.`);
+    }
+
+     returnItem() {
+        this.isAvailable = true;
+        console.log(`${this.title} published by ${this.publisher} with ID ${this.id} is available.`);
+    }
+
+}
+
+//Step 3 
+let frog = new Book ("Frog and Toad are Friends",123,true,"Arnold Lobel","children's");
+console.log(frog);
+frog.checkOut(); 
+console.log(frog);
+
+let train = new DVD ("Bullet Train",420,false,"David Leitch",126);
+console.log(train);
+train.returnItem();
+console.log(train);
+
+let people = new Magazine ("People",798,true,581,"People, Inc.");
+console.log(people);
+people.checkOut();
+console.log(people);
