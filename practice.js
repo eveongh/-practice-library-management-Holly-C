@@ -33,7 +33,7 @@ Tasks
     class.
 */ 
 
-//Step 1 
+
 class LibraryItem {
     constructor (title,id,isAvailable) {
     this.title = title; 
@@ -52,7 +52,6 @@ class LibraryItem {
     }
 }
 
-//Step 2 
 
 class Book extends LibraryItem {
     constructor(title,id,isAvailable, author, genre) {
@@ -110,7 +109,6 @@ class Magazine extends LibraryItem {
 
 }
 
-//Step 3 
 let frog = new Book ("Frog and Toad are Friends",123,true,"Arnold Lobel","children's");
 console.log(frog);
 frog.checkOut(); 
